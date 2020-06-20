@@ -32,6 +32,12 @@ module.exports = class ComponentSource extends EntitySource {
         return super.entities();
     }
 
+    rootCollections() {
+        let collections = super.rootCollections();
+
+        return [this, ...collections];
+    }
+
     getReferencesOf(target) {
         const refs = [];
         this.source.flatten().forEach((component) => {
